@@ -33,4 +33,9 @@ public class JpaAccountRepository implements AccountRepository {
     public void deleteById(Long id) {
         springDataAccountRepository.deleteById(id);
     }
+
+    @Override
+    public List<Account> findByCustomerId(Long customerId) {
+        return List.of();
+    }
 }
