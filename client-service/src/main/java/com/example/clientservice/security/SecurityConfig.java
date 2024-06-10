@@ -43,8 +43,7 @@ public class SecurityConfig {
 		http.csrf(AbstractHttpConfigurer::disable)
 				.authorizeRequests(authorizeRequests ->
 						authorizeRequests
-								.antMatchers(GET, "/user/loginsystem/**").permitAll()
-								.antMatchers(POST, "/person/newemployee/**").permitAll()
+								.antMatchers(GET, "/clientes/**").permitAll()
 								.antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
 								.anyRequest().authenticated()
 				)

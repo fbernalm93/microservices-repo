@@ -19,4 +19,7 @@ public class Customer extends Person {
     @NotEmpty(message="Field is required")
     @Column(name="state")
     private Boolean state;
+
+    public Customer(String id, String name, Gender gender, Integer age, String address, String phoneNumber, Long customerId, String password, Boolean state) {
+    }
 }
