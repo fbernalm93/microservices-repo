@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "14d72bbf-1c99-44c7-a6d1-2fa81d4799f7",
+		"name": "DevSu TechChallenge - Accounts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9507221",
+		"_collection_link": "https://lively-comet-6333.postman.co/workspace/BUK-Integraciones~26085b3f-9d52-40d5-97bb-d4d3b7e4af41/collection/9507221-14d72bbf-1c99-44c7-a6d1-2fa81d4799f7?action=share&source=collection_link&creator=9507221"
+	},
+	"item": [
+		{
+			"name": "getAccountById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/cuentas/1",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"cuentas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAccountStatement",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/cuentas/reportes?fechaInicio=2024-05-30T01:30:00.000-05:00&fechaFin=2024-06-15T01:30:00.000-05:00&customer=0302195177",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"cuentas",
+						"reportes"
+					],
+					"query": [
+						{
+							"key": "fechaInicio",
+							"value": "2024-05-30T01:30:00.000-05:00"
+						},
+						{
+							"key": "fechaFin",
+							"value": "2024-06-15T01:30:00.000-05:00"
+						},
+						{
+							"key": "customer",
+							"value": "0302195177"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTransactions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \r\n    \"transactionType\" : \"RETIRO\",\r\n    \"amount\" : 50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/cuentas/1/movimientos",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"cuentas",
+						"1",
+						"movimientos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listAccounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/cuentas",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"cuentas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createAccount",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNumber\" : \"1021453228\",\r\n    \"accountType\" : \"AHORROS\",\r\n    \"initialBalance\" : 100.00,\r\n    \"state\" : true,\r\n    \"customerId\" : \"0302195177\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/cuentas",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"cuentas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAccountById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/cuentas/1",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"cuentas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
