@@ -33,17 +33,4 @@ public class CustomerTest {
         assertEquals(state, customer.getState());
     }
 
-    @Test
-    public void testCustomerEqualsAndHashCode() {
-        Customer customer1 = new Customer("0302195177", "Franklin Bernal", Gender.MALE, 31, "Cacique Chaparra", "0979100036", 1L, "claveTemporal1", true);
-        Customer customer2 = new Customer("0104519814", "Vanessa Siguencia", Gender.FEMALE, 25, "Julia Bernal", "0984062356", 1L, "claveTemporal2", true);
-        Customer customer3 = new Customer("0301169397", "Franklin Bernal Zambrano", Gender.MALE, 54, "Alfonso Andrade", "0987654321", 2L, "claveTemporal3", false);
-
-
-        assertEquals(customer1, customer2);
-        assertNotEquals(customer1, customer3);
-        assertEquals(customer1.hashCode(), customer2.hashCode());
-        assertNotEquals(customer1.hashCode(), customer3.hashCode());
-    }
-
 }

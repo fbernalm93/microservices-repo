@@ -2,6 +2,8 @@ package com.example.clientservice.infrastructure.adapter.in;
 
 import com.example.clientservice.application.service.CustomerService;
 import com.example.clientservice.domain.model.Customer;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/clientes")
+@Api(tags = "Customer Controller", description = "Endpoints to manage customers")
 public class CustomerController {
 
     @Autowired
@@ -21,6 +24,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
+    @ApiOperation("Get a customer by ID")
     public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
         return customerService.getCustomerById(id)
                 .map(ResponseEntity::ok)
@@ -32,6 +36,7 @@ public class CustomerController {
         return customerService.createCustomer(customer);
     }
 
+    @ApiOperation("Delete a customer")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
         customerService.deleteCustomer(id);

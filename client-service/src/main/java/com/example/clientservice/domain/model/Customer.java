@@ -21,5 +21,9 @@ public class Customer extends Person {
     private Boolean state;
 
     public Customer(String id, String name, Gender gender, Integer age, String address, String phoneNumber, Long customerId, String password, Boolean state) {
+        super(id, name, gender, age, address, phoneNumber);
+        this.customerId = customerId;
+        this.password = password;
+        this.state = state;
     }
 }

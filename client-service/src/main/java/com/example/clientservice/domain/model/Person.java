@@ -7,10 +7,10 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 
-@MappedSuperclass
 @Entity
 @Data
 @Table(name = "person")
+@Inheritance( strategy = InheritanceType.JOINED)
 public class Person {
     @NotEmpty(message="Field is required")
     @Size(min=10,max = 10, message = "The length of identification should be 10")
@@ -36,4 +36,14 @@ public class Person {
     @Column(name="phonenumber",length=10)
     private String phoneNumber;
 
+    public Person(String id, String name, Gender gender, Integer age, String address, String phoneNumber) {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Person() {}
 }

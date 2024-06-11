@@ -5,6 +5,8 @@ import com.example.bankaccountservice.application.service.AccountService;
 import com.example.bankaccountservice.domain.exception.InsufficientBalanceException;
 import com.example.bankaccountservice.domain.model.Account;
 import com.example.bankaccountservice.domain.model.Transaction;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/cuentas")
+@Api(tags = "Accounts Controller", description = "Endpoints to manage accounts")
 public class AccountController {
 
     @Autowired
@@ -27,6 +30,7 @@ public class AccountController {
     }
 
     @GetMapping("/{id}")
+    @ApiOperation("Get an account by ID")
     public ResponseEntity<Account> getAccountById(@PathVariable Long id) {
         return accountService.getAccountById(id)
                 .map(ResponseEntity::ok)
@@ -39,12 +43,14 @@ public class AccountController {
     }
 
     @DeleteMapping("/{id}")
+    @ApiOperation("Delete an account by ID")
     public ResponseEntity<Void> deleteAccount(@PathVariable Long id) {
         accountService.deleteAccount(id);
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/{id}/transactions")
+    @PostMapping("/{id}/movimientos")
+    @ApiOperation("Register transactions from an account")
     public ResponseEntity<?> addTransaction(@PathVariable Long id, @RequestBody Transaction transaction) {
         try {
             Transaction createdTransaction = accountService.addTransaction(id, transaction);
@@ -55,6 +61,7 @@ public class AccountController {
     }
 
     @GetMapping("/reportes")
+    @ApiOperation("Generate accounts statements")
     public ResponseEntity<AccountStatementReportDTO> getAccountStatement(
             @RequestParam("fechaInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fechaInicio,
             @RequestParam("fechaFin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fechaFin,
