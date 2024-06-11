@@ -10,7 +10,6 @@ public class CustomerDTO {
     private Integer age;
     private String address;
     private String phoneNumber;
-    private Long customerId;
     private String password;
     private Boolean state;
 }

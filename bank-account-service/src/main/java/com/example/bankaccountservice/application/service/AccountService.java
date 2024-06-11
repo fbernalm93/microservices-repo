@@ -8,8 +8,11 @@ import com.example.bankaccountservice.application.dto.TransactionReportDTO;
 import com.example.bankaccountservice.domain.exception.InsufficientBalanceException;
 import com.example.bankaccountservice.domain.model.Account;
 import com.example.bankaccountservice.domain.model.Transaction;
+import com.example.bankaccountservice.domain.model.TransactionType;
 import com.example.bankaccountservice.domain.repository.AccountRepository;
 import com.example.bankaccountservice.infrastructure.adapter.out.JpaTransactionRepository;
+import io.swagger.v3.core.util.Json;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +22,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class AccountService {
 
     @Autowired
@@ -48,12 +52,19 @@ public class AccountService {
         Account account = accountRepository.findById(accountId)
                 .orElseThrow(() -> new RuntimeException("Account not found"));
 
-        if (account.getInitialBalance() + transaction.getAmount() < 0) {
+        if(TransactionType.DEPOSITO == transaction.getTransactionType())
+        {
+            transaction.setBalance(account.getInitialBalance() + transaction.getAmount());
+        } else {
+            transaction.setBalance(account.getInitialBalance() - transaction.getAmount());
+        }
+
+        if (transaction.getBalance()  < 0) {
             throw new InsufficientBalanceException("Saldo no disponible");
         }
 
         transaction.setDate(LocalDateTime.now());
-        transaction.setBalance(account.getInitialBalance() + transaction.getAmount());
+
         account.addTransaction(transaction);
 
         accountRepository.save(account);
@@ -66,8 +77,7 @@ public class AccountService {
             throw new RuntimeException("Customer not found");
         }
 
-        List<Account> accounts = accountRepository.findByCustomerId(customer.getCustomerId());
-
+        List<Account> accounts = accountRepository.findByCustomerId(customerId);
         List<AccountReportDTO> accountReportDTOS = accounts.stream().map(account -> {
             List<TransactionReportDTO> transactionReportDTOS = account.getTransactions().stream()
                     .filter(transaction -> transaction.getDate().isAfter(startDate) && transaction.getDate().isBefore(endDate))

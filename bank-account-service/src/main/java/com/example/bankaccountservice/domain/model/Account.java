@@ -40,10 +40,6 @@ public class Account {
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
         transaction.setAccount(this);
-        updateBalance(transaction.getAmount());
     }
 
-    private void updateBalance(double amount) {
-        initialBalance += amount;
-    }
 }

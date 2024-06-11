@@ -1,5 +1,6 @@
 package com.example.bankaccountservice.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
@@ -24,6 +25,7 @@ public class Transaction {
     private double balance;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "account_id")
     private Account account;
 }

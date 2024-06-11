@@ -35,7 +35,7 @@ public class JpaAccountRepository implements AccountRepository {
     }
 
     @Override
-    public List<Account> findByCustomerId(Long customerId) {
-        return List.of();
+    public List<Account> findByCustomerId(String customerId) {
+        return springDataAccountRepository.findAll().stream().filter(account -> account.getCustomerId().equals(customerId)).toList();
     }
 }

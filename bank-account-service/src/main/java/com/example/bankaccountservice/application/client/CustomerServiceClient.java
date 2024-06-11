@@ -11,7 +11,7 @@ public class CustomerServiceClient {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String CUSTOMER_SERVICE_URL = "http://localhost:8081/clientes";
+    private static final String CUSTOMER_SERVICE_URL = "http://localhost:8080/clientes";
 
     public CustomerDTO getCustomerById(String customerId) {
         return restTemplate.getForObject(CUSTOMER_SERVICE_URL + "/" + customerId, CustomerDTO.class);
