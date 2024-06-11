@@ -53,7 +53,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\" : \"0302195177\",\r\n    \"name\" : \"FranklinBernal\",\r\n    \"gender\" : \"MALE\",\r\n    \"age\" : 31,\r\n    \"address\" : \"Cacique Chaparra 5-51\",\r\n    \"phoneNumber\" : \"0979100036\",\r\n    \"password\" : \"claveTemporalFbernal\",\r\n    \"state\" : true\r\n}",
+					"raw": "{\r\n    \"id\" : \"0302195177\",\r\n    \"name\" : \"FranklinBernal\",\r\n    \"gender\" : \"MASCULINO\",\r\n    \"age\" : 31,\r\n    \"address\" : \"Cacique Chaparra 5-51\",\r\n    \"phoneNumber\" : \"0979100036\",\r\n    \"password\" : \"claveTemporalFbernal\",\r\n    \"state\" : true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

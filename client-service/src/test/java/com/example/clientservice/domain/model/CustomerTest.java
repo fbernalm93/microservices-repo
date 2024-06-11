@@ -9,7 +9,7 @@ public class CustomerTest {
     public void testCustomerConstructorAndGetters() {
         String id = "0302195177";
         String name = "Franklin Bernal";
-        Gender gender = Gender.MALE;
+        Gender gender = Gender.MASCULINO;
         Integer age = 31;
         String address = "Cacique Chaparra 5-51";
         String phoneNumber = "0979100036";

@@ -25,7 +25,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("API Documentation")
-                .description("Documentation for Person-Customer MicroService")
+                .description("Documentation for your APIs")
                 .version("1.0.0")
                 .build();
     }
