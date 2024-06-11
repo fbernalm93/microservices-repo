@@ -6,11 +6,10 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
-
 @Entity
 @Data
 @Table(name = "person")
-@Inheritance( strategy = InheritanceType.JOINED)
+@Inheritance( strategy = InheritanceType.JOINED )
 public class Person {
     @NotEmpty(message="Field is required")
     @Size(min=10,max = 10, message = "The length of identification should be 10")
@@ -20,13 +19,11 @@ public class Person {
     private String id;
     @NotEmpty(message="Field is required")
     @Column(name="name", length=100)
-    @Pattern(regexp="^[A-Za-z]*$",message = "The field Name should always contain alphabetic characters")
+    @Pattern(regexp="^[A-Za-z ]*$",message = "The field Name should always contain alphabetic characters")
     private String name;
-    @NotEmpty(message="Field is required")
     @Column(name="gender")
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @NotEmpty(message="Field is required")
     @Column(name="age")
     private Integer age;
     @NotEmpty(message="Field is required")

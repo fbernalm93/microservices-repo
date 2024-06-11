@@ -20,7 +20,7 @@ public class JpaCustomerRepository implements CustomerRepository {
     }
 
     @Override
-    public Optional<Customer> findById(Long id) {
+    public Optional<Customer> findById(String id) {
         return springDataCustomerRepository.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class JpaCustomerRepository implements CustomerRepository {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(String id) {
         springDataCustomerRepository.deleteById(id);
     }
 }

@@ -2,6 +2,7 @@ package com.example.clientservice.application.service;
 
 import com.example.clientservice.domain.model.Customer;
 import com.example.clientservice.domain.repository.CustomerRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CustomerService {
 
     @Autowired
@@ -18,7 +20,7 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public Optional<Customer> getCustomerById(Long id) {
+    public Optional<Customer> getCustomerById(String id) {
         return customerRepository.findById(id);
     }
 
@@ -26,7 +28,7 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
-    public void deleteCustomer(Long id) {
+    public void deleteCustomer(String id) {
         customerRepository.deleteById(id);
     }
 }

@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "318378bc-2e49-42a6-ac33-ea2c259db376",
+		"name": "DevSu TechChallenge - Customers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9507221",
+		"_collection_link": "https://lively-comet-6333.postman.co/workspace/BUK-Integraciones~26085b3f-9d52-40d5-97bb-d4d3b7e4af41/collection/9507221-318378bc-2e49-42a6-ac33-ea2c259db376?action=share&source=collection_link&creator=9507221"
+	},
+	"item": [
+		{
+			"name": "getCustomerById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/clientes/0302195177",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"clientes",
+						"0302195177"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listCustomers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/clientes",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createCustomer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : \"0302195177\",\r\n    \"name\" : \"FranklinBernal\",\r\n    \"gender\" : \"MALE\",\r\n    \"age\" : 31,\r\n    \"address\" : \"Cacique Chaparra 5-51\",\r\n    \"phoneNumber\" : \"0979100036\",\r\n    \"password\" : \"claveTemporalFbernal\",\r\n    \"state\" : true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/clientes",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCustomerById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{host}}:{{port}}/clientes/0302195177",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"clientes",
+						"0302195177"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

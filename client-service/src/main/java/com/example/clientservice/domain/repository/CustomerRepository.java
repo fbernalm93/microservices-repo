@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface CustomerRepository {
     List<Customer> findAll();
-    Optional<Customer> findById(Long id);
+    Optional<Customer> findById(String id);
     Customer save(Customer customer);
-    void deleteById(Long id);
+    void deleteById(String id);
 }
