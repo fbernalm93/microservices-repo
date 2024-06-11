@@ -12,6 +12,9 @@
 
 ## DokerFile
 - Se agrega en cada microservicio el Dockerfile para poder levantar la aplicación.
+- Ejecutar en el siguiente orden:
+- docker build -t "services-fbernal" #Construye la imagen
+- docker run --name services-fbernal -p 8080:8080 -p 8081:8081 services-fbernal:latest #Levanta los servicios, mapeando los puertos del host local con el de docker
 
 ## Documentación Swagger
 - Quedó incompleta por temas de tiempo, hubo inconvenientes con las nuevas anotaciones de la versión compatible con JAVA 17.
